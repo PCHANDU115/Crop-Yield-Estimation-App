@@ -47,7 +47,7 @@ else:
     )
 
 # App Title with Emoji
-st.title("🌾 Crop Yield Estimation Tool")
+st.title("🌾 Crop Yield Estimation Web app")
 
 # Input Section
 st.header("📋 Input Parameters")
