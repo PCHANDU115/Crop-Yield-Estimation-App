@@ -125,6 +125,6 @@ Estimated Yield: {yield_estimate:.2f} tons
 # Footer - Objective of the Web App
 st.sidebar.markdown("---")
 st.sidebar.write("""
-### Objective of the Crop Yield Estimation Web App:
+### 🎯Objective:
 This web app is designed to help farmers and agricultural planners estimate crop yields based on various factors, including crop type, planting area, soil condition, fertilizer usage, pesticide usage, and water availability. The tool provides a quick, data-driven estimate to assist in decision-making for better crop management.
 """)
