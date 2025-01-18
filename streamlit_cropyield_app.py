@@ -1,7 +1,8 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
-import time  # For loading animation
+import time
+import urllib.parse  # For URL encoding
 
 # Define the crop yield estimation function
 def estimate_yield(crop_type, planting_area, soil_condition, fertilizer, pesticide, water_avail):
@@ -24,29 +25,7 @@ def plot_yield_pie(crop_type, fertilizer, pesticide, water_avail):
     ax.set_title(f"Contributions to {crop_type} Yield")
     st.pyplot(fig)
 
-# Set the theme
-st.sidebar.title("⚙️ App Settings")
-theme = st.sidebar.radio("Choose a Theme:", ["🌞 Light", "🌙 Dark"], index=0)
-if theme == "🌞 Light":
-    st.markdown(
-        """
-        <style>
-        body {background-color: #f9f9f9; color: #333;}
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-else:
-    st.markdown(
-        """
-        <style>
-        body {background-color: #333; color: #f9f9f9;}
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-
-# App Title with Emoji
+# App Title
 st.title("🌾 Crop Yield Estimation Web App")
 
 # Input Section
@@ -71,21 +50,25 @@ if st.button("📊 Estimate Yield"):
 
     # Generate Report
     report = f"""
-    Crop Yield Estimation Report
-    ----------------------------
-    Crop Type: {crop_type}
-    Planting Area: {planting_area:.2f} hectares
-    Soil Condition: {soil_condition}
-    Fertilizer Usage: {fertilizer:.2f} kg/ha
-    Pesticide Usage: {pesticide:.2f} L/ha
-    Water Availability: {water_avail:.2f} mm
-    ----------------------------
-    Estimated Yield: {yield_estimate:.2f} tons
+Crop Yield Estimation Report
+----------------------------
+Crop Type: {crop_type}
+Planting Area: {planting_area:.2f} hectares
+Soil Condition: {soil_condition}
+Fertilizer Usage: {fertilizer:.2f} kg/ha
+Pesticide Usage: {pesticide:.2f} L/ha
+Water Availability: {water_avail:.2f} mm
+----------------------------
+Estimated Yield: {yield_estimate:.2f} tons
     """
+
+    # URL-encode the report
+    encoded_report = urllib.parse.quote(report)
+
     # Display styled download button
     st.markdown(
         f"""
-        <a href="data:text/plain;charset=utf-8,{report}" download="crop_yield_report.txt">
+        <a href="data:text/plain;charset=utf-8,{encoded_report}" download="crop_yield_report.txt">
         <button style="
             background-color: #4CAF50; 
             color: white; 
