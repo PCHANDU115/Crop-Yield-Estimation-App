@@ -26,7 +26,7 @@ def plot_yield_pie(crop_type, fertilizer, pesticide, water_avail):
     st.pyplot(fig)
 
 # App Title
-st.title("🌾 Crop Yield Estimation Web App")
+st.title("🌾 akhil Crop Yield Estimation Web App")
 
 # Sidebar - Help Section with Example Inputs
 st.sidebar.header("❓ Help/Instructions")
