@@ -82,12 +82,27 @@ if st.button("📊 Estimate Yield"):
     ----------------------------
     Estimated Yield: {yield_estimate:.2f} tons
     """
-    # Display download button
-    st.download_button(
-        label="📄 Download Report",
-        data=report,
-        file_name="crop_yield_report.txt",
-        mime="text/plain"
+    # Display styled download button
+    st.markdown(
+        f"""
+        <a href="data:text/plain;charset=utf-8,{report}" download="crop_yield_report.txt">
+        <button style="
+            background-color: #4CAF50; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            text-align: center; 
+            text-decoration: none; 
+            display: inline-block; 
+            font-size: 16px; 
+            margin: 4px 2px; 
+            cursor: pointer;
+            border-radius: 12px;">
+            📄 Download Report
+        </button>
+        </a>
+        """,
+        unsafe_allow_html=True,
     )
 
 # Footer
