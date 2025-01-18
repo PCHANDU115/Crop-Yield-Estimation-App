@@ -47,7 +47,7 @@ else:
     )
 
 # App Title with Emoji
-st.title("🌾 Crop Yield Estimation Tool")
+st.title("🌾 Crop Yield Estimation Web App")
 
 # Input Section
 st.header("📋 Input Parameters")
@@ -68,6 +68,27 @@ if st.button("📊 Estimate Yield"):
     # Display Pie Chart
     st.subheader("📈 Yield Contributions")
     plot_yield_pie(crop_type, fertilizer, pesticide, water_avail)
+
+    # Generate Report
+    report = f"""
+    Crop Yield Estimation Report
+    ----------------------------
+    Crop Type: {crop_type}
+    Planting Area: {planting_area:.2f} hectares
+    Soil Condition: {soil_condition}
+    Fertilizer Usage: {fertilizer:.2f} kg/ha
+    Pesticide Usage: {pesticide:.2f} L/ha
+    Water Availability: {water_avail:.2f} mm
+    ----------------------------
+    Estimated Yield: {yield_estimate:.2f} tons
+    """
+    # Display download button
+    st.download_button(
+        label="📄 Download Report",
+        data=report,
+        file_name="crop_yield_report.txt",
+        mime="text/plain"
+    )
 
 # Footer
 st.sidebar.markdown("---")
