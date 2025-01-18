@@ -28,6 +28,33 @@ def plot_yield_pie(crop_type, fertilizer, pesticide, water_avail):
 # App Title
 st.title("🌾 Crop Yield Estimation Web App")
 
+# Sidebar - Help Section
+st.sidebar.header("❓ Help/Instructions")
+st.sidebar.markdown("""
+### How to Use the Crop Yield Estimation App:
+
+1. **Select Crop Type**: Choose the crop you are working with (Wheat, Corn, or Rice).
+   
+2. **Enter Planting Area**: Specify the area of your farm in hectares. For example, if you have a 2-hectare farm, enter `2.0`.
+   
+3. **Select Soil Condition**: Choose the soil condition of your farm: 
+   - **Good**: Optimal soil for planting.
+   - **Average**: Soil that needs some improvement.
+   - **Poor**: Soil that requires significant improvement.
+   
+4. **Enter Fertilizer Usage**: Specify the amount of fertilizer used per hectare (kg/ha).
+
+5. **Enter Pesticide Usage**: Specify the amount of pesticide used per hectare (L/ha).
+
+6. **Enter Water Availability**: Enter the water availability in mm. This can depend on rainfall or irrigation systems in place.
+
+7. **Click "Estimate Yield"**: After entering all the parameters, click the button to estimate the crop yield based on the entered information.
+
+8. **Download Report**: After the yield is estimated, you can download a detailed report containing your inputs and the estimated yield.
+
+For more information or assistance, please contact support.
+""")
+
 # Input Section
 st.header("📋 Input Parameters")
 crop_type = st.selectbox("🌾 Select Crop Type:", ['Wheat', 'Corn', 'Rice'])
